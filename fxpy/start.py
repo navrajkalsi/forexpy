@@ -79,10 +79,10 @@ def currency_to_country(currency_code):
 
     try:
         currency = pycountry.currencies.get(alpha_3 = currency_code)
+        return pycountry.countries.get(numeric = currency.numeric)
     except:
-        return None
-
-    return pycountry.countries.get(numeric = currency.numeric)
+        print("Invalid currency code entered!\nPlease try again.")
+        exit()
 
 # Prints official names of countries if any
 def country_facts(countries):

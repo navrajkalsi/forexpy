@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name = "FxPy",
-    version = "1.1.2",
+    version = "1.1.4",
     packages = find_packages(),
     install_requires = ["pycountry", "pynput", "requests", "beautifulsoup4", "keyboard", "pandas", "openpyxl", "argparse"],
     entry_points = {
