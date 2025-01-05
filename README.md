@@ -16,6 +16,13 @@ Personally, I was frustated whenever I needed to do a foreign transaction. If, I
 
 ## Quick Start
 
+#### For Linux, this tool requires root access (because of usage of keyboard library). To run terminal as root, use the following command:
+```bash
+sudo su
+# enter the password
+```
+After gaining root privileges continue with the following steps:
+
 Install ForexPy using:
 * __Pypi__
 
@@ -47,10 +54,11 @@ After Installation is complete, ForexPy can be used in the following ways:
 # codes are case insensitive and the flags avaliable are:
 # '-s' - Sender Currency Code
 # '-r' - Receiver Currency Code
+# '-v' - Retrieve the current version of the tool
 
-fxpy --sender USD --receiver INR
+fxpy --sender CAD --receiver INR
 # or
-fxpy -s usd -r inr
+fxpy -s cad -r inr
 ```
 
 * __Without Arguments__: If you do not know the exact currency codes, then you could just enter the following command and follow the instructions by entering in the respective country names (these names do not need to be perfect, the program will help in choosing the correct names).
@@ -58,3 +66,7 @@ fxpy -s usd -r inr
 ```bash
 fxpy
 ```
+
+## License
+
+Distributed under the MIT License. See `LICENSE` for more information.

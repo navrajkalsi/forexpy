@@ -3,6 +3,7 @@ import sys
 import pandas as pd
 import os
 import argparse
+import importlib.metadata
 
 # Function imports from other files
 from fxpy.menu import start_menu
@@ -126,13 +127,18 @@ def main():
         "--receiver", "-r", type = str, help = "Receiver Currency Alpha_3 Code"
     )
 
+    parser.add_argument(
+        "--version", "-v", action = "version", help = "Show Version and Exit", version = f"%(prog)s {importlib.metadata.version('FxPy')}"
+    )
+
     args = parser.parse_args()
 
     # Validating arguments, if any
     if args.sender and args.receiver:
         if args.sender.lower() == args.receiver.lower():
             print("Same currencies were selected for Sender and Receiver.\nPlease try again by entering different currency codes.")
-            exit()
+
+exit()
         else:
             countries = [ currency_to_country(args.sender.upper()), currency_to_country(args.receiver.upper()) ]
             are_countries_same = False # Setting to false so as to prevent the while loop from asking the user for countries, when correct currency codes were entered
