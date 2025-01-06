@@ -1,6 +1,6 @@
 import sys
-# Controller from Pynput required to initiate a false input and it doees not require root privileges in linux
-from pynput import keyboard
+import keyboard as kboard
+# Controller from Pynput required to initiate a false input
 from pynput.keyboard import Key, Controller
 
 # Displays the menu with the options passed and selects the selected index
@@ -23,33 +23,26 @@ def start_menu(options):
     if len(options) > 5:
         options = options[:5]
 
-    menu_lines = len(options) + 2 # Adding 2 to adjust for a blank line and the exit line at the end
+    menu_lines = len(options)+2 # Adding 2 to adjust for a blank line and the exit line at the end
 
     while True:
-        print(selected)
         display_menu(options, selected)
 
-        with keyboard.Events() as events:
-            for event in events:
-                # Only registering on key press, not on key release
-                if type(event) == keyboard.Events.Press:
-                    if event.key == Key.up or 'k':
-                        print('k')
-                        selected = (selected - 1) % len(options)
-                    elif event.key == Key.down or 'j':
-                        selected = (selected + 1) % len(options)
-                        print('j')
-                    elif event.key == Key.enter:
-                        clear_menu_lines(menu_lines + 2)
-                        return selected
-                    elif event.key == Key.esc:
-                        # When user presses escape the input leaks to the receiver country input. To tackle this, a 'Enter' key is initiated when esc is pressed
-                        # This is not required when the user selects a country, as it is done by pressing enter.
-                        enter_keyboard = Controller()
-                        enter_keyboard.press(Key.enter)
-                        enter_keyboard.release(Key.enter)
-                        clear_menu_lines(menu_lines + 3)
-                        return None
-                    break
+        key = kboard.read_event()
+        if (key.name == "up" or key.name == "k") and key.event_type == "down":
+            selected = (selected - 1) % len(options)
+        elif (key.name == "down" or key.name == "j") and key.event_type == "down":
+            selected = (selected + 1) % len(options)
+        elif key.name == "enter" and key.event_type == "down":
+            clear_menu_lines(menu_lines + 2)
+            return selected
+        elif key.name == "esc" and key.event_type == "down":
+            # When user presses escape the input leaks to the receiver country input. To tackle this, a 'Enter' key is initiated when esc is pressed
+            # This is not required when the user selects a country, as it is done by pressing enter.
+            enter_keyboard = Controller()
+            enter_keyboard.press(Key.enter)
+            enter_keyboard.release(Key.enter)
+            clear_menu_lines(menu_lines + 3)
+            return None
 
         clear_menu_lines(menu_lines)  # Clear menu for redraw
