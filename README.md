@@ -11,17 +11,22 @@ OR
 
 * Use `ForexPy` and get rates from major services with a single command!
 
-Personally, I was frustated whenever I needed to do a foreign transaction. If, I choose one service due to its better rate. Next time, the same service might be offering the worst rate. Therefore, I created ForexPy to save myself time, hassle and money.
+Personally, I was frustated whenever I needed to do a foreign transaction. If I choose one service due to its better rate next time the same service might be offering the worst rate. Therefore, I created ForexPy to save myself time, hassle and money.
 
 
 ## Quick Start
 
-#### For Linux, this tool requires root access (because of usage of keyboard library). To run terminal as root, use the following command:
+For `Windows`, try to use the terminal as an Administrator.
+
+For `Linux`, this tool requires root access (because of usage of keyboard library). To run terminal as root, use the following command:
+
 ```bash
 sudo su
 # enter the password
 ```
-After gaining root privileges continue with the following steps:
+![Linux Root Terminal Example](./media/1.png)
+
+After gaining root or admin privileges continue with the following steps:
 
 Install ForexPy using:
 * __Pypi__
@@ -48,18 +53,23 @@ pip install .
 
 After Installation is complete, ForexPy can be used in the following ways:
 
-* __With Arguments__: If you know the <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO Alpha 3 Codes</a> of the currencies you want to convert, simply use the following command and pass the currency codes as arguments. The below example uses 'USD' and 'INR'.
+* __With Arguments__: If you know the <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO Alpha 3 Codes</a> of the currencies you want to convert, simply use the following command and pass the currency codes as arguments. The below example uses 'CAD' and 'INR'.
+
+| Flag | Flag Description|
+|:----:|:---------------:|
+|-s| Sender Currency Code |
+|-r| Receiver Currency Code |
+|-v| Current Version of Tool |
 
 ```bash
-# codes are case insensitive and the flags avaliable are:
-# '-s' - Sender Currency Code
-# '-r' - Receiver Currency Code
-# '-v' - Retrieve the current version of the tool
+# codes are case insensitive
 
 fxpy --sender CAD --receiver INR
 # or
 fxpy -s cad -r inr
 ```
+
+![CAD to INR Example Conversion](./media/1.gif)
 
 * __Without Arguments__: If you do not know the exact currency codes, then you could just enter the following command and follow the instructions by entering in the respective country names (these names do not need to be perfect, the program will help in choosing the correct names).
 
@@ -67,6 +77,4 @@ fxpy -s cad -r inr
 fxpy
 ```
 
-## License
-
-Distributed under the MIT License. See `LICENSE` for more information.
+![CAD to INR Example Conversion](./media/2.gif)

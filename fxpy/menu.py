@@ -1,7 +1,5 @@
 import sys
-import keyboard as kboard
-# Controller from Pynput required to initiate a false input
-from pynput.keyboard import Key, Controller
+import keyboard
 
 # Displays the menu with the options passed and selects the selected index
 def display_menu(options, selected):
@@ -28,7 +26,7 @@ def start_menu(options):
     while True:
         display_menu(options, selected)
 
-        key = kboard.read_event()
+        key = keyboard.read_event()
         if (key.name == "up" or key.name == "k") and key.event_type == "down":
             selected = (selected - 1) % len(options)
         elif (key.name == "down" or key.name == "j") and key.event_type == "down":
@@ -39,9 +37,7 @@ def start_menu(options):
         elif key.name == "esc" and key.event_type == "down":
             # When user presses escape the input leaks to the receiver country input. To tackle this, a 'Enter' key is initiated when esc is pressed
             # This is not required when the user selects a country, as it is done by pressing enter.
-            enter_keyboard = Controller()
-            enter_keyboard.press(Key.enter)
-            enter_keyboard.release(Key.enter)
+            keyboard.send('enter')
             clear_menu_lines(menu_lines + 3)
             return None
 

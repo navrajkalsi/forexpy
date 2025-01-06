@@ -1,3 +1,4 @@
+from keyboard import press
 import pycountry
 import sys
 import pandas as pd
@@ -137,8 +138,7 @@ def main():
     if args.sender and args.receiver:
         if args.sender.lower() == args.receiver.lower():
             print("Same currencies were selected for Sender and Receiver.\nPlease try again by entering different currency codes.")
-
-exit()
+            exit()
         else:
             countries = [ currency_to_country(args.sender.upper()), currency_to_country(args.receiver.upper()) ]
             are_countries_same = False # Setting to false so as to prevent the while loop from asking the user for countries, when correct currency codes were entered
