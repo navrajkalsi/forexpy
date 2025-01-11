@@ -143,7 +143,16 @@ def main():
             countries = [ currency_to_country(args.sender.upper()), currency_to_country(args.receiver.upper()) ]
             are_countries_same = False # Setting to false so as to prevent the while loop from asking the user for countries, when correct currency codes were entered
     elif not args.sender and not args.receiver:
-        pass
+        # Checking if the terminal is in admin or root mode to access keyboard functionality.
+        # OS.geteuid() only returns in linux or macos. Admin mode is required for both the OSs, not for Windows.
+        # Therefore, if the function returns something, then the OS being used is Linux or MacOS and root access is required. But if the funciton throws an exception, then the OS is windows and no need to check for root access.
+        try:
+            if os.geteuid() == 0:
+                pass
+            else:
+                print("Terminal not in Root mode!\nPlease run the terminal as root, or use flags if you wish to run the terminal in normal mode.\nSee GitHub Repo for instructions on how to run as root or how to use flags.")
+        except:
+            pass
     elif not args.sender or not args.receiver:
         print("\nBoth Sender and Receiver currency codes are required!\nPlease try again with valid codes for both currencies.\nNot sure what is the currency code of one of the countries? NO PROBLEM!\nJust launch the tool without any arguments and enter country names instead of currency codes.")
         exit()
