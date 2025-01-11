@@ -151,7 +151,7 @@ def main():
                 pass
             else:
                 print("Terminal not in Root mode!\nPlease run the terminal as root, or use flags if you wish to run the terminal in normal mode.\nSee GitHub Repo for instructions on how to run as root or how to use flags.")
-                sys.exit()
+                exit()
         except:
             pass
     elif not args.sender or not args.receiver:
