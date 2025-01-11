@@ -84,7 +84,7 @@ def currency_to_country(currency_code):
         return pycountry.countries.get(numeric = currency.numeric)
     except:
         print("Invalid currency code entered!\nPlease try again.")
-        exit()
+        sys.exit()
 
 # Prints official names of countries if any
 def country_facts(countries):
@@ -138,7 +138,7 @@ def main():
     if args.sender and args.receiver:
         if args.sender.lower() == args.receiver.lower():
             print("Same currencies were selected for Sender and Receiver.\nPlease try again by entering different currency codes.")
-            exit()
+            sys.exit()
         else:
             countries = [ currency_to_country(args.sender.upper()), currency_to_country(args.receiver.upper()) ]
             are_countries_same = False # Setting to false so as to prevent the while loop from asking the user for countries, when correct currency codes were entered
@@ -151,12 +151,12 @@ def main():
                 pass
             else:
                 print("Terminal not in Root mode!\nPlease run the terminal as root, or use flags if you wish to run the terminal in normal mode.\nSee GitHub Repo for instructions on how to run as root or how to use flags.")
-                exit()
-        except:
+                sys.exit()
+        except Exception:
             pass
     elif not args.sender or not args.receiver:
         print("\nBoth Sender and Receiver currency codes are required!\nPlease try again with valid codes for both currencies.\nNot sure what is the currency code of one of the countries? NO PROBLEM!\nJust launch the tool without any arguments and enter country names instead of currency codes.")
-        exit()
+        sys.exit()
 
     # Program continues if correct currency codes were passed or no args were passed.
 

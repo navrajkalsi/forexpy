@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name = "FxPy",
-    version = "1.1.7",
+    version = "1.1.8",
     description = "ForexPy: A currency conversion tool that also scraps the web and gives the Forex Exchange rates from major services.",
     long_description = open("README.md").read(),
     long_description_content_type = "text/markdown",
