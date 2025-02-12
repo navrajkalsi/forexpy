@@ -10,8 +10,8 @@ def display_menu(options, selected):
 
 # Moves the cursor up 'lines_count' lines and clears them
 def clear_menu_lines(lines_count):
-    sys.stdout.write(f"\033[{lines_count}A")  # Move up the cursor
-    sys.stdout.write("\033[J")  # Clear everything from the cursor down
+    sys.stdout.write(f'\033[{lines_count}A')  # Move up the cursor
+    sys.stdout.write('\033[J')  # Clear everything from the cursor down
     sys.stdout.flush()
 
 def start_menu(options):
