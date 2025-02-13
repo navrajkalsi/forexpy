@@ -81,7 +81,10 @@ fxpy
 ![CAD to INR Example Conversion](https://raw.githubusercontent.com/navrajkalsi/forexpy/refs/heads/main/media/2.gif)
 
 ### Windows Issue
-Windows Command Prompt and Powershell do not natively support ANSI escape codes.
+While testing this tool on different computers, I found myself as a part of the 'works on my machine' meme:)
+<br>
+Context: Windows Command Prompt and Powershell do not natively support ANSI escape codes.
+<br>
 This program does make use of these codes when using the tool **without arguments** and selecting a country.
 In such case, if the shell does not support ANSI codes you will see something similar:
 
