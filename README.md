@@ -16,22 +16,11 @@ Personally, I was frustated whenever I needed to do a foreign transaction. If I 
 
 ## Quick Start
 
-For `Windows`, use the **Windows Terminal**. Preferably in Administrator mode.
-**DO NOT USE STRAIGHT COMMAND PROMPT or POWERSHELL!** [Click for more details.](#windows-issue)
-
-For `Linux`, this tool requires root access (because of usage of keyboard library). To run terminal as root, use the following command:
-
-```bash
-sudo su
-# enter the password
-```
-![Linux Root Terminal Example](https://raw.githubusercontent.com/navrajkalsi/forexpy/refs/heads/main/media/1.png)
-
-After gaining root or admin privileges continue with the following steps:
-
-Install ForexPy using:
+For `Linux & Windows`:
+Install using:
 * __Pypi__
 
+__Using a virtual envrionment is recommended with `pip`__
 ```bash
 pip install fxpy
 ```
@@ -52,9 +41,15 @@ pip install .
 
 ## Usage
 
+In `Windows`, use the new **Windows Terminal**, preferably in Administrator mode.
+**DO NOT USE STRAIGHT COMMAND PROMPT or POWERSHELL!** [Click for more details.](#windows-issue)
+
+In `Linux` this tool requires root access (because of usage of keyboard library). Therefore, run the terminal as root OR run the command as __sudo__.
+**USE 'sudo -E' TO PRESERVE ENVIRONMENT VARIABLES**. Not doing so may lead to 'Module Not Found' Error.
+
 After Installation is complete, ForexPy can be used in the following ways:
 
-* __With Arguments__: If you know the <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO Alpha 3 Codes</a> of the currencies you want to convert, simply use the following command and pass the currency codes as arguments. The below example uses 'CAD' and 'INR'.
+* __With Arguments__ (No root privileges required): If you know the <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO Alpha 3 Codes</a> of the currencies you want to convert, simply use the following command and pass the currency codes as arguments. The below example uses 'CAD' and 'INR'.
 
 | Flag | Flag Description|
 |:----:|:---------------:|
@@ -64,7 +59,6 @@ After Installation is complete, ForexPy can be used in the following ways:
 
 ```bash
 # codes are case insensitive
-
 fxpy --sender CAD --receiver INR
 # or
 fxpy -s cad -r inr
@@ -72,10 +66,11 @@ fxpy -s cad -r inr
 
 ![CAD to INR Example Conversion](https://raw.githubusercontent.com/navrajkalsi/forexpy/refs/heads/main/media/1.gif)
 
-* __Without Arguments__: If you do not know the exact currency codes, then you could just enter the following command and follow the instructions by entering in the respective country names (these names do not need to be perfect, the program will help in choosing the correct names).
+* __Without Arguments__ (Root privileges may be required): If you do not know the exact currency codes, then you could just enter the following command and follow the instructions by entering in the respective country names (these names do not need to be perfect, the program will help in choosing the correct names).
 
 ```bash
 fxpy
+# use 'sudo -E fxpy' to preserve env vars
 ```
 
 ![CAD to INR Example Conversion](https://raw.githubusercontent.com/navrajkalsi/forexpy/refs/heads/main/media/2.gif)
@@ -88,7 +83,7 @@ Context: Windows Command Prompt and Powershell do not natively support ANSI esca
 This program does make use of these codes when using the tool **without arguments** and selecting a country.
 In such case, if the shell does not support ANSI codes you will see something similar:
 
-![Windows Command Prompt not supporting ANSI codes](https://raw.githubusercontent.com/navrajkalsi/forexpy/refs/heads/main/media/2.png)
+![Windows Command Prompt not supporting ANSI codes](https://raw.githubusercontent.com/navrajkalsi/forexpy/refs/heads/main/media/3.png)
 
 To resolve this use [Windows Terminal](https://apps.microsoft.com/detail/9n0dx20hk701?hl=en-US&gl=US) and use Command Prompt in this terminal.
 Side Note: If you haven't already, you SHOULD try this terminal. It houses all the shells and even WSL! It looks incredible too.

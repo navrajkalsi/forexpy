@@ -5,6 +5,7 @@ __pycache__/
 *$py.class
 
 notes.txt
+token.txt
 
 # C extensions
 *.so
