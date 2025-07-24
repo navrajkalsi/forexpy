@@ -64,7 +64,7 @@ fxpy --sender CAD --receiver INR
 fxpy -s cad -r inr
 ```
 
-![CAD to INR Example Conversion](https://raw.githubusercontent.com/navrajkalsi/forexpy/refs/heads/main/media/1.gif)
+![CAD to INR Example Conversion](./media/1.gif)
 
 * __Without Arguments__ (Root privileges may be required): If you do not know the exact currency codes, then you could just enter the following command and follow the instructions by entering in the respective country names (these names do not need to be perfect, the program will help in choosing the correct names).
 
@@ -73,7 +73,7 @@ fxpy
 # use 'sudo -E fxpy' to preserve env vars
 ```
 
-![CAD to INR Example Conversion](https://raw.githubusercontent.com/navrajkalsi/forexpy/refs/heads/main/media/2.gif)
+![CAD to INR Example Conversion](./media/2.gif)
 
 ### Windows Issue
 While testing this tool on different computers, I found myself as a part of the 'works on my machine' meme:)
@@ -83,7 +83,7 @@ Context: Windows Command Prompt and Powershell do not natively support ANSI esca
 This program does make use of these codes when using the tool **without arguments** and selecting a country.
 In such case, if the shell does not support ANSI codes you will see something similar:
 
-![Windows Command Prompt not supporting ANSI codes](https://raw.githubusercontent.com/navrajkalsi/forexpy/refs/heads/main/media/3.png)
+![Windows Command Prompt not supporting ANSI codes](./media/3.png)
 
 To resolve this use [Windows Terminal](https://apps.microsoft.com/detail/9n0dx20hk701?hl=en-US&gl=US) and use Command Prompt in this terminal.
 Side Note: If you haven't already, you SHOULD try this terminal. It houses all the shells and even WSL! It looks incredible too.
