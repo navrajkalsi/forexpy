@@ -44,8 +44,16 @@ pip install .
 In `Windows`, use the new **Windows Terminal**, preferably in Administrator mode.
 **DO NOT USE STRAIGHT COMMAND PROMPT or POWERSHELL!** [Click for more details.](#windows-issue)
 
-In `Linux` this tool requires root access (because of usage of keyboard library). Therefore, run the terminal as root OR run the command as __sudo__.
-**USE 'sudo -E' TO PRESERVE ENVIRONMENT VARIABLES**. Not doing so may lead to 'Module Not Found' Error.
+In `Linux` this tool requires root access (because of usage of keyboard library).
+
+Therefore, run the terminal as root OR run the command as __sudo__.
+**USE 'sudo -E' TO PRESERVE ENVIRONMENT VARIABLES**. Not doing so may lead to 'ModuleNotFound' Error.
+
+---
+* __IMPORTANT__:
+In Linux, __pip__ installs binaries in ~/.local/bin. Therefore, this directory should be in `PATH` of user
+& `sudo -E` has to be used to ensure that sudo does not reset the PATH.
+---
 
 After Installation is complete, ForexPy can be used in the following ways:
 
